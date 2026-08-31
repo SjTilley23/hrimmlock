@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0frirbu4t6r7"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_kyt5w"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_4xowi"]
 
 [node name="Node3D" type="Node3D" unique_id=1778620760]
 
@@ -9,7 +9,7 @@
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Node3D" unique_id=1801651090]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/CharacterBody3D" unique_id=879520213]
-shape = SubResource("CylinderShape3D_kyt5w")
+shape = SubResource("SphereShape3D_4xowi")
 
 [node name="Camera3D" type="Camera3D" parent="Node3D/CharacterBody3D" unique_id=522872314]
 
