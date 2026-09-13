@@ -1,10 +1,97 @@
 [gd_scene format=3 uid="uid://d0frirbu4t6r7"]
 
 [ext_resource type="Texture2D" uid="uid://dsepjqtm2au26" path="res://Textures/marble_rock_03_diff_4k.png" id="1_a0tk4"]
+[ext_resource type="Script" uid="uid://da64tehxc82rf" path="res://character_body_3d.gd" id="1_jka67"]
+[ext_resource type="Texture2D" uid="uid://cq8sous1stfn6" path="res://Textures/IDLE.png" id="1_r3fl7"]
 [ext_resource type="Texture2D" uid="uid://clsoe3ynjq338" path="res://Textures/marble_rock_03_nor_gl_4k.png" id="2_r3fl7"]
 [ext_resource type="Texture2D" uid="uid://c4k7sbpoy88hy" path="res://Textures/marble_rock_03_rough_4k.png" id="3_jka67"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_4xowi"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dahoj"]
+height = 1.0
+radius = 0.3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jka67"]
+atlas = ExtResource("1_r3fl7")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5arm"]
+atlas = ExtResource("1_r3fl7")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc5p8"]
+atlas = ExtResource("1_r3fl7")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsk3o"]
+atlas = ExtResource("1_r3fl7")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4arys"]
+atlas = ExtResource("1_r3fl7")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iypd"]
+atlas = ExtResource("1_r3fl7")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tereu"]
+atlas = ExtResource("1_r3fl7")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdqbm"]
+atlas = ExtResource("1_r3fl7")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imku0"]
+atlas = ExtResource("1_r3fl7")
+region = Rect2(768, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlxy5"]
+atlas = ExtResource("1_r3fl7")
+region = Rect2(864, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hnip3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jka67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5arm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc5p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsk3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4arys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iypd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tereu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdqbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imku0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlxy5")
+}],
+"loop": 1,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kyt5w"]
 top_radius = 0.3
@@ -41,14 +128,21 @@ shadow_enabled = true
 [node name="World" type="Node3D" parent="." unique_id=450178002]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="World" unique_id=1801651090]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2213058, 9.523753)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99821174, 9.523753)
+script = ExtResource("1_jka67")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/CharacterBody3D" unique_id=879520213]
-shape = SubResource("SphereShape3D_4xowi")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.49902344, 0)
+shape = SubResource("CylinderShape3D_dahoj")
 
 [node name="Camera3D" type="Camera3D" parent="World/CharacterBody3D" unique_id=522872314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6907606)
 
-[node name="Sprite3D" type="Sprite3D" parent="World/CharacterBody3D" unique_id=1901081744]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="World/CharacterBody3D" unique_id=1941915338]
+pixel_size = 0.03
+sprite_frames = SubResource("SpriteFrames_hnip3")
+animation = &"IDLE"
+speed_scale = 0.8
 
 [node name="Pillar" type="MeshInstance3D" parent="World" unique_id=408116853]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8825526, 0)
