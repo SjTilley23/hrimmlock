@@ -1,16 +1,74 @@
 [gd_scene format=3 uid="uid://d0frirbu4t6r7"]
 
+[ext_resource type="Texture2D" uid="uid://dsepjqtm2au26" path="res://Textures/marble_rock_03_diff_4k.png" id="1_a0tk4"]
+[ext_resource type="Texture2D" uid="uid://clsoe3ynjq338" path="res://Textures/marble_rock_03_nor_gl_4k.png" id="2_r3fl7"]
+[ext_resource type="Texture2D" uid="uid://c4k7sbpoy88hy" path="res://Textures/marble_rock_03_rough_4k.png" id="3_jka67"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_4xowi"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kyt5w"]
+top_radius = 0.3
+bottom_radius = 0.845
+height = 5.883
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a0tk4"]
+bounce = 0.53
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hnip3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dahoj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
+albedo_texture = ExtResource("1_a0tk4")
+roughness_texture = ExtResource("3_jka67")
+normal_enabled = true
+normal_texture = ExtResource("2_r3fl7")
+uv1_scale = Vector3(25, 25, 25)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kyt5w"]
+material = SubResource("StandardMaterial3D_i5arm")
+size = Vector2(300, 300)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dahoj"]
+size = Vector3(300, 0.1, 300)
 
 [node name="Node3D" type="Node3D" unique_id=1778620760]
 
-[node name="Node3D" type="Node3D" parent="." unique_id=450178002]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=511362577]
+transform = Transform3D(-0.9166472, -0.34614828, 0.1998488, 2.8445706e-08, 0.5, 0.86602557, -0.39969757, 0.7938398, -0.45832354, 2.8621483, 8.768547, -4.5421767)
+shadow_enabled = true
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Node3D" unique_id=1801651090]
+[node name="World" type="Node3D" parent="." unique_id=450178002]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/CharacterBody3D" unique_id=879520213]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="World" unique_id=1801651090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2213058, 9.523753)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/CharacterBody3D" unique_id=879520213]
 shape = SubResource("SphereShape3D_4xowi")
 
-[node name="Camera3D" type="Camera3D" parent="Node3D/CharacterBody3D" unique_id=522872314]
+[node name="Camera3D" type="Camera3D" parent="World/CharacterBody3D" unique_id=522872314]
 
-[node name="Sprite3D" type="Sprite3D" parent="Node3D/CharacterBody3D" unique_id=1901081744]
+[node name="Sprite3D" type="Sprite3D" parent="World/CharacterBody3D" unique_id=1901081744]
+
+[node name="Pillar" type="MeshInstance3D" parent="World" unique_id=408116853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8825526, 0)
+mesh = SubResource("CylinderMesh_kyt5w")
+
+[node name="Ball" type="RigidBody3D" parent="World" unique_id=2121872935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5026245, 3.0612636)
+physics_material_override = SubResource("PhysicsMaterial_a0tk4")
+
+[node name="BallCollision" type="CollisionShape3D" parent="World/Ball" unique_id=790693939]
+shape = SubResource("SphereShape3D_hnip3")
+
+[node name="BallTexture" type="MeshInstance3D" parent="World/Ball" unique_id=1276302483]
+mesh = SubResource("SphereMesh_dahoj")
+
+[node name="Ground" type="StaticBody3D" parent="World" unique_id=1132419525]
+
+[node name="GroundTexture" type="MeshInstance3D" parent="World/Ground" unique_id=1178380991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09010315, -0.013066292, 0.14089203)
+mesh = SubResource("PlaneMesh_kyt5w")
+
+[node name="GroundCollision" type="CollisionShape3D" parent="World/Ground" unique_id=2107910127]
+shape = SubResource("BoxShape3D_dahoj")
