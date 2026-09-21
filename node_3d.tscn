@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dsepjqtm2au26" path="res://Textures/marble_rock_03_diff_4k.png" id="1_a0tk4"]
 [ext_resource type="Script" uid="uid://da64tehxc82rf" path="res://character_body_3d.gd" id="1_jka67"]
-[ext_resource type="Texture2D" uid="uid://cq8sous1stfn6" path="res://Textures/IDLE.png" id="1_r3fl7"]
+[ext_resource type="Texture2D" uid="uid://cq8sous1stfn6" path="res://SpriteSheets/IDLE.png" id="1_r3fl7"]
 [ext_resource type="Texture2D" uid="uid://clsoe3ynjq338" path="res://Textures/marble_rock_03_nor_gl_4k.png" id="2_r3fl7"]
 [ext_resource type="Texture2D" uid="uid://c4k7sbpoy88hy" path="res://Textures/marble_rock_03_rough_4k.png" id="3_jka67"]
 
@@ -142,6 +142,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6907606)
 pixel_size = 0.03
 sprite_frames = SubResource("SpriteFrames_hnip3")
 animation = &"IDLE"
+frame_progress = 0.87485826
 speed_scale = 0.8
 
 [node name="Pillar" type="MeshInstance3D" parent="World" unique_id=408116853]
