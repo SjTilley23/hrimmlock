@@ -128,22 +128,25 @@ shadow_enabled = true
 [node name="World" type="Node3D" parent="." unique_id=450178002]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="World" unique_id=1801651090]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99821174, 9.523753)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9.524)
 script = ExtResource("1_jka67")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/CharacterBody3D" unique_id=879520213]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.49902344, 0)
 shape = SubResource("CylinderShape3D_dahoj")
 
-[node name="Camera3D" type="Camera3D" parent="World/CharacterBody3D" unique_id=522872314]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6907606)
-
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="World/CharacterBody3D" unique_id=1941915338]
 pixel_size = 0.03
 sprite_frames = SubResource("SpriteFrames_hnip3")
 animation = &"IDLE"
-frame_progress = 0.87485826
+frame_progress = 0.8197252
 speed_scale = 0.8
+
+[node name="CameraPivot" type="Node3D" parent="World/CharacterBody3D" unique_id=709759977]
+
+[node name="Camera3D" type="Camera3D" parent="World/CharacterBody3D/CameraPivot" unique_id=522872314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19806302, -0.00024700165)
+fov = 95.0
 
 [node name="Pillar" type="MeshInstance3D" parent="World" unique_id=408116853]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8825526, 0)
