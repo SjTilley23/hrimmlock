@@ -1,12 +1,11 @@
 extends CharacterBody3D
 
-@onready var animatedSprite = $AnimatedSprite3D
 @onready var cameraPivot = $CameraPivot
 var mouseDirection: Vector2
 	
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const cameraSpeed = .01
+const cameraSpeed = .004
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -16,14 +15,13 @@ func _input(event):
 		mouseDirection = event.screen_velocity
 
 func _process(_delta):
-	animatedSprite.play("IDLE")
+	
 	rotate_y(-mouseDirection.x * cameraSpeed * _delta)
 	cameraPivot.rotation.y = rotation.y
 	cameraPivot.rotation.x += -mouseDirection.y * cameraSpeed * _delta
 	
 	mouseDirection.x = 0
 	mouseDirection.y = 0
-	
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
