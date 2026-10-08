@@ -5,7 +5,7 @@ var mouseDirection: Vector2
 	
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const cameraSpeed = .0075
+const cameraSpeed = .4
 var mvVec = Vector3(0,0,0)
 var sinCP
 var cosCP
@@ -15,7 +15,7 @@ func _ready():
 	
 func _input(event):
 	if event is InputEventMouseMotion:
-		mouseDirection = event.screen_velocity
+		mouseDirection = event.relative
 
 func _process(_delta):
 	rotate_y(-mouseDirection.x * cameraSpeed * _delta)
