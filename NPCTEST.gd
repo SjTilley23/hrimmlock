@@ -1,5 +1,10 @@
 extends CharacterBody3D
-@onready var animatedSprite = $AnimatedSprite3D 
+@onready var animatedSprite = $AnimatedSprite3D
+
+var health = 3
+
+func TakeDamage(damage):
+	health -= damage
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

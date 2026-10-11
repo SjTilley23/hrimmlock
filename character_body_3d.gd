@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 @onready var cameraPivot = $CameraPivot
+@onready var equipmentNode = get_node("Equipment")
+@onready var animationPlayer = get_node("AnimationPlayer")
 var mouseDirection: Vector2
 	
 const SPEED = 5.0
@@ -10,12 +12,27 @@ var mvVec = Vector3(0,0,0)
 var sinCP
 var cosCP
 
+func useLeft():
+	var cEquip = equipmentNode.equipment
+	var leftHandItem = cEquip[0]
+	if (leftHandItem != null):
+		animationPlayer.playAnimation(leftHandItem.useAnimation)
+	
+	
+func useRight():
+	pass
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _input(event):
 	if event is InputEventMouseMotion:
 		mouseDirection = event.relative
+	if event is InputEventMouseButton:
+		if event.button_index == 1:
+			useLeft()
+		if event.button_index == 2:
+			useRight()
 
 func _process(_delta):
 	rotate_y(-mouseDirection.x * cameraSpeed * _delta)
