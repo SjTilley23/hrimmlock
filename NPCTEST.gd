@@ -5,6 +5,7 @@ var health = 3
 
 func TakeDamage(damage):
 	health -= damage
+	print(health)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

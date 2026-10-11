@@ -17,6 +17,7 @@ func useLeft():
 	var leftHandItem = cEquip[0]
 	if (leftHandItem != null):
 		animationPlayer.playAnimation(leftHandItem.useAnimation)
+		equipmentNode.Attack(leftHandItem.itemDamage)
 	
 	
 func useRight():
@@ -28,7 +29,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseMotion:
 		mouseDirection = event.relative
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == 1:
 			useLeft()
 		if event.button_index == 2:
