@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cjnyws26c48ws" path="res://Textures/patio_tiles_nor_gl_2k.png" id="7_4arys"]
 [ext_resource type="Script" uid="uid://cu0x7y8qr1evf" path="res://NPCTEST.gd" id="8_4arys"]
 [ext_resource type="Texture2D" uid="uid://cc8q7lp1drc8h" path="res://Textures/patio_tiles_rough_2k.png" id="8_6iypd"]
+[ext_resource type="Texture2D" uid="uid://bv12dkcsmtvyo" path="res://SpriteSheets/corpse.png" id="13_3v7ru"]
+[ext_resource type="Texture2D" uid="uid://dxip6msyajyek" path="res://SpriteSheets/HURT.png" id="13_wlxy5"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dahoj"]
 height = 1.0
@@ -196,6 +198,30 @@ data = PackedVector3Array(-3, 1.5, 0.75, -2.7856998, 0.75, 0.75, -3, 0.75, 0.75,
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kyt5w"]
 height = 1.0849609
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb8dk"]
+atlas = ExtResource("13_3v7ru")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mu51"]
+atlas = ExtResource("13_3v7ru")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id0nj"]
+atlas = ExtResource("13_wlxy5")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q667"]
+atlas = ExtResource("13_wlxy5")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ype4i"]
+atlas = ExtResource("13_wlxy5")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riyl1"]
+atlas = ExtResource("13_wlxy5")
+region = Rect2(288, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsk3o"]
 atlas = ExtResource("1_r3fl7")
 region = Rect2(0, 0, 96, 96)
@@ -240,6 +266,34 @@ region = Rect2(864, 0, 96, 96)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pb8dk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mu51")
+}],
+"loop": 1,
+"name": &"CorpseNPCTEST",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id0nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q667")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ype4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riyl1")
+}],
+"loop": 1,
+"name": &"HurtNPCTEST",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jsk3o")
 }, {
 "duration": 1.0,
@@ -278,6 +332,118 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_tcnuu"]
+resource_name = "HurtNPCTEST"
+length = 0.444
+step = 0.111
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.111, 0.222, 0.333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_i0g27"]
+resource_name = "IdleNPCTEST"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_tuemg"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_vmvb8"]
+resource_name = "corpse"
+step = 0.111
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"CorpseNPCTEST", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ealrb"]
+resource_name = "hurt"
+length = 0.44
+step = 0.111
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"HurtNPCTEST", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jsnrv"]
+resource_name = "idle"
+step = 0.111
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"IdleNPCTEST", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tuemg"]
+_data = {
+&"HurtNPCTEST": SubResource("Animation_tcnuu"),
+&"IdleNPCTEST": SubResource("Animation_i0g27"),
+&"RESET": SubResource("Animation_tuemg"),
+&"corpse": SubResource("Animation_vmvb8"),
+&"hurt": SubResource("Animation_ealrb"),
+&"idle": SubResource("Animation_jsnrv")
+}
 
 [node name="Node3D" type="Node3D" unique_id=1778620760]
 
@@ -378,5 +544,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00259763, 0.062910736, -0.
 flip_h = true
 pixel_size = 0.03
 sprite_frames = SubResource("SpriteFrames_hnip3")
-animation = &"IdleNPCTEST"
-frame_progress = 0.32605118
+animation = &"CorpseNPCTEST"
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/NPCTEST" unique_id=2109074733]
+libraries/ = SubResource("AnimationLibrary_tuemg")
