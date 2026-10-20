@@ -13,8 +13,8 @@ var sinCP
 var cosCP
 
 func useLeft():
-	var cEquip = equipmentNode.equipment
-	var leftHandItem = cEquip[0]
+	var cEquip = equipmentNode.hotbar
+	var leftHandItem = cEquip[equipmentNode.currentSelection]
 	if (leftHandItem != null):
 		animationPlayer.playAnimation(leftHandItem.useAnimation)
 		equipmentNode.Attack(leftHandItem.itemDamage)
@@ -34,6 +34,10 @@ func _input(event):
 			useLeft()
 		if event.button_index == 2:
 			useRight()
+	if event is InputEventKey:
+		match event.keycode:
+			"hotbar 1":
+				print("Working")
 
 func _process(_delta):
 	rotate_y(-mouseDirection.x * cameraSpeed * _delta)
