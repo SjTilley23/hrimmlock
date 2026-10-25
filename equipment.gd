@@ -23,6 +23,7 @@ func Attack(damage):
 
 func hotbarSelection(numSelect):
 	currentSelection = numSelect
+	print("working")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,7 +39,15 @@ func _ready() -> void:
 	"Sword01", 
 	"Sword01Swing")
 	
+	var item2 = Item.new("Sword2",
+	"Another sword",
+	2,
+	2,
+	"Sword01",
+	"Sword01Swing")
+	
 	hotbar.set(0, item)
+	hotbar.set(1,item2)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

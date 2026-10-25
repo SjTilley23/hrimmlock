@@ -34,10 +34,10 @@ func _input(event):
 			useLeft()
 		if event.button_index == 2:
 			useRight()
-	if event is InputEventKey:
-		match event.keycode:
-			"hotbar 1":
-				print("Working")
+	if Input.is_action_just_pressed("hotbar 1"):
+		equipmentNode.hotbarSelection(0)
+	elif (Input.is_action_just_pressed("hotbar 2")):
+		equipmentNode.hotbarSelection(1)
 
 func _process(_delta):
 	rotate_y(-mouseDirection.x * cameraSpeed * _delta)
