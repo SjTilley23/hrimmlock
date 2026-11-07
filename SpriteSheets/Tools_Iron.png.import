@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o4x5d4wmalsh"
-path="res://.godot/imported/Hotbar.png-0450c48d451ae7b9df6b94d40dd73f1e.ctex"
+uid="uid://uygwqtukmvk2"
+path="res://.godot/imported/Tools_Iron.png-382f82307bb544a04f05750dc9d126e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpriteSheets/Hotbar.png"
-dest_files=["res://.godot/imported/Hotbar.png-0450c48d451ae7b9df6b94d40dd73f1e.ctex"]
+source_file="res://SpriteSheets/Tools_Iron.png"
+dest_files=["res://.godot/imported/Tools_Iron.png-382f82307bb544a04f05750dc9d126e0.ctex"]
 
 [params]
 

@@ -5,13 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://cq8sous1stfn6" path="res://SpriteSheets/IDLE.png" id="1_r3fl7"]
 [ext_resource type="Script" uid="uid://cd8cwmkoqwagg" path="res://inventory.gd" id="2_6iypd"]
 [ext_resource type="Texture2D" uid="uid://clsoe3ynjq338" path="res://Textures/marble_rock_03_nor_gl_4k.png" id="2_r3fl7"]
-[ext_resource type="Texture2D" uid="uid://o4x5d4wmalsh" path="res://SpriteSheets/Hotbar.png" id="2_tcnuu"]
+[ext_resource type="Texture2D" uid="uid://bwi5pjt6upx0o" path="res://SpriteSheets/UI_Panel.png" id="2_tcnuu"]
 [ext_resource type="Texture2D" uid="uid://c4k7sbpoy88hy" path="res://Textures/marble_rock_03_rough_4k.png" id="3_jka67"]
 [ext_resource type="Script" uid="uid://d1x0l8q2u0ox6" path="res://equipment.gd" id="3_tereu"]
-[ext_resource type="Script" uid="uid://ylpi6kfuvbec" path="res://animation_player.gd" id="4_cdqbm"]
-[ext_resource type="Texture2D" uid="uid://b4whno1skvjvn" path="res://SpriteSheets/Sword01Swing.png" id="5_imku0"]
+[ext_resource type="Texture2D" uid="uid://b4whno1skvjvn" path="res://SpriteSheets/Sword01Swing.png" id="5_3v7ru"]
 [ext_resource type="Texture2D" uid="uid://dksr35fh0lwd2" path="res://Textures/patio_tiles_diff_2k.png" id="6_jsk3o"]
+[ext_resource type="Texture2D" uid="uid://clrtwwqib5ixc" path="res://SpriteSheets/ezgif-sprite.png" id="6_tcnuu"]
 [ext_resource type="Texture2D" uid="uid://cjnyws26c48ws" path="res://Textures/patio_tiles_nor_gl_2k.png" id="7_4arys"]
+[ext_resource type="Script" uid="uid://bcgkxq6k4aa52" path="res://animated_sprite_2d.gd" id="7_tuemg"]
 [ext_resource type="Script" uid="uid://cu0x7y8qr1evf" path="res://NPCTEST.gd" id="8_4arys"]
 [ext_resource type="Texture2D" uid="uid://cc8q7lp1drc8h" path="res://Textures/patio_tiles_rough_2k.png" id="8_6iypd"]
 [ext_resource type="Texture2D" uid="uid://bv12dkcsmtvyo" path="res://SpriteSheets/corpse.png" id="13_3v7ru"]
@@ -22,135 +23,157 @@ height = 1.0
 radius = 0.3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i0g27"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(0, 0, 64, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ealrb"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(64, 0, 64, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsnrv"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(128, 0, 64, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lggff"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(192, 0, 64, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s0gvp"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(256, 0, 64, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxd74"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(320, 0, 64, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dhlwf"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(384, 0, 64, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5t8nk"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(448, 0, 64, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3e5s"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(512, 0, 64, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nu31w"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(576, 0, 64, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_obt1j"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(640, 0, 64, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2yde8"]
-atlas = ExtResource("5_imku0")
+atlas = ExtResource("5_3v7ru")
 region = Rect2(704, 0, 64, 85)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dahoj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmvb8"]
+atlas = ExtResource("6_tcnuu")
+region = Rect2(0, 0, 25, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i7mf"]
+atlas = ExtResource("6_tcnuu")
+region = Rect2(25, 0, 25, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s0n5"]
+atlas = ExtResource("6_tcnuu")
+region = Rect2(50, 0, 25, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpkl4"]
+atlas = ExtResource("6_tcnuu")
+region = Rect2(75, 0, 25, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4s1x"]
+atlas = ExtResource("6_tcnuu")
+region = Rect2(0, 38, 25, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf4ct"]
+atlas = ExtResource("6_tcnuu")
+region = Rect2(25, 38, 25, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w2ad"]
+atlas = ExtResource("6_tcnuu")
+region = Rect2(50, 38, 25, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p5mg"]
+atlas = ExtResource("6_tcnuu")
+region = Rect2(75, 38, 25, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4r66j"]
 animations = [{
 "frames": [{
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_i0g27")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ealrb")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jsnrv")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lggff")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_s0gvp")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vxd74")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_dhlwf")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5t8nk")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_j3e5s")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nu31w")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_obt1j")
 }, {
-"duration": 1.3,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2yde8")
-}, {
-"duration": 1.3,
-"texture": SubResource("AtlasTexture_i0g27")
 }],
-"loop": 1,
-"name": &"SwordSwing",
-"speed": 36.0
+"loop": 0,
+"name": &"Sword01Swing",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmvb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i7mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s0n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpkl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4s1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf4ct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w2ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p5mg")
+}],
+"loop": 0,
+"name": &"Sword02Swing",
+"speed": 15.0
 }]
-
-[sub_resource type="Animation" id="Animation_wlxy5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CameraPivot/AnimatedSprite3D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_3v7ru"]
-resource_name = "Sword01Swing"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CameraPivot/AnimatedSprite3D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.099999994, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tcnuu"]
-_data = {
-&"RESET": SubResource("Animation_wlxy5"),
-&"Sword01Swing": SubResource("Animation_3v7ru")
-}
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kyt5w"]
 top_radius = 0.3
@@ -468,26 +491,16 @@ shape = SubResource("CylinderShape3D_dahoj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19806302, 0.037503242)
 fov = 95.0
 
-[node name="Control" type="Control" parent="World/CharacterBody3D/CameraPivot/Camera3D" unique_id=1345656712]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="World/CharacterBody3D/CameraPivot/Camera3D" unique_id=733890915]
 
-[node name="TextureRect" type="TextureRect" parent="World/CharacterBody3D/CameraPivot/Camera3D/Control" unique_id=175142123]
-layout_mode = 0
-offset_left = 318.0
-offset_top = 584.0
-offset_right = 383.0
-offset_bottom = 593.0
-scale = Vector2(7, 7)
+[node name="Hotbar" type="TextureRect" parent="World/CharacterBody3D/CameraPivot/Camera3D/CanvasLayer" unique_id=175142123]
+offset_left = 280.0
+offset_top = 501.0
+offset_right = 472.0
+offset_bottom = 565.0
+scale = Vector2(3, 3)
 texture = ExtResource("2_tcnuu")
 stretch_mode = 2
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="World/CharacterBody3D/CameraPivot" unique_id=856365285]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34996435, -0.34205306, -0.17990398)
-sprite_frames = SubResource("SpriteFrames_dahoj")
-animation = &"SwordSwing"
 
 [node name="Inventory" type="Node3D" parent="World/CharacterBody3D" unique_id=1436122607]
 script = ExtResource("2_6iypd")
@@ -495,9 +508,12 @@ script = ExtResource("2_6iypd")
 [node name="Equipment" type="Node3D" parent="World/CharacterBody3D" unique_id=442124029]
 script = ExtResource("3_tereu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/CharacterBody3D" unique_id=574419587]
-libraries/ = SubResource("AnimationLibrary_tcnuu")
-script = ExtResource("4_cdqbm")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/CharacterBody3D" unique_id=1548248550]
+position = Vector2(155, 372)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_4r66j")
+animation = &"Sword02Swing"
+script = ExtResource("7_tuemg")
 
 [node name="Terrain" type="Node3D" parent="World" unique_id=1285264427]
 

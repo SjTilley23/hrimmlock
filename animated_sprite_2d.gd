@@ -1,8 +1,9 @@
-extends AnimationPlayer
+extends AnimatedSprite2D
 
 
-func playAnimation(nameOfAni):
-	play(nameOfAni)
+func playAnimation(animation):
+	play(animation)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
