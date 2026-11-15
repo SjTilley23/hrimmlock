@@ -7,7 +7,7 @@ class_name Item extends Resource
 @export var itemDescription: String
 @export var itemDamage: int
 @export var itemSpeed: int
-@export var itemSprite: String
+@export var itemSprite: Texture2D
 @export var useAnimation: String
 
 func _init(itemName, itemDescription, itemDamage, itemSpeed, itemSprite, useAnimation) -> void:

@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cc8q7lp1drc8h" path="res://Textures/patio_tiles_rough_2k.png" id="8_6iypd"]
 [ext_resource type="Texture2D" uid="uid://bv12dkcsmtvyo" path="res://SpriteSheets/corpse.png" id="13_3v7ru"]
 [ext_resource type="Texture2D" uid="uid://dxip6msyajyek" path="res://SpriteSheets/HURT.png" id="13_wlxy5"]
+[ext_resource type="Script" uid="uid://fanta2aiwxoq" path="res://ground_item.gd" id="18_ealrb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dahoj"]
 height = 1.0
@@ -469,6 +470,9 @@ _data = {
 &"idle": SubResource("Animation_jsnrv")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i0g27"]
+height = 0.90319824
+
 [node name="Node3D" type="Node3D" unique_id=1778620760]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=511362577]
@@ -582,3 +586,13 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="World/NPCTEST" unique_id=2109074733]
 libraries/ = SubResource("AnimationLibrary_tuemg")
+
+[node name="GroundItem01" type="StaticBody3D" parent="World" unique_id=78988465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9055151, 0.48853528, 0.61473155)
+script = ExtResource("18_ealrb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/GroundItem01" unique_id=462945359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15783787, 0)
+shape = SubResource("CylinderShape3D_i0g27")
+
+[node name="Sprite3D" type="Sprite3D" parent="World/GroundItem01" unique_id=2068832947]

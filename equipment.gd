@@ -11,7 +11,7 @@ func Attack(damage):
 	
 	# Local Variables
 	var character = get_parent()
-	var origin = character.position
+	var origin = character.global_position + Vector3(0,0,.3)
 	var direction = -character.global_transform.basis.z
 	var distance = 3
 	var end = origin + direction * distance
@@ -33,10 +33,16 @@ func Attack(damage):
 		# Otherwise, do nothing
 		else:
 			pass
+		
 
 # Changes our hotbar selection
 func hotbarSelection(numSelect):
 	currentSelection = numSelect
+	
+func AddToHotbar(item):
+	for x in range(hotbar.size()):
+		if hotbar[x] == null:
+			hotbar.set(x,item)
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -50,19 +56,11 @@ func _ready() -> void:
 	"A Sword", 
 	1, 
 	1, 
-	"Sword01", 
+	null, 
 	"Sword01Swing")
-	
-	var item2 = Item.new("Sword2",
-	"Another sword",
-	2,
-	1.2,
-	"Sword02",
-	"Sword02Swing")
 	
 	# Adds the items to our hotbar
 	hotbar.set(0, item)
-	hotbar.set(1, item2)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

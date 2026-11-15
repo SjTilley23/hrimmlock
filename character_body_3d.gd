@@ -14,6 +14,40 @@ var mvVec = Vector3(0,0,0)
 var sinCP
 var cosCP
 
+func Interacting():
+	
+	# Local Variables
+	var origin = global_position + Vector3(0,0,.3)
+	var direction = -global_transform.basis.z
+	var distance = 3
+	var end = origin + direction * distance
+	var intersect = PhysicsRayQueryParameters3D.create(origin, end)
+	
+	# Excludes our character from the raycast intersection check
+	intersect.exclude = [self]
+	print("Origin: ", origin)
+	print("End: ", end)
+	print("Direction: ", direction)
+	
+	# Determines if our ray actually intersects something
+	var result = get_world_3d().direct_space_state.intersect_ray(intersect)
+	
+	if result:
+		
+		# Gets the collider of the intersected object
+		var target = result.collider
+		print("Hit: ", target.name)
+		
+		# if the target can be interacted with
+		if target.has_method("Interact"):
+			# Check what type of interaction should take place
+			match (target.Interact()):
+				"PickupItem":
+					equipmentNode.AddToHotbar(target.PickupItem())
+		# Otherwise, do nothing
+		else:
+			pass
+
 # Use Item in Left Hand
 func useLeft():
 	var leftHandItem = getEquipped()
@@ -56,27 +90,35 @@ func _input(event):
 	
 	# Checks for hotbar inputs (1, 2, 3 ... etc)
 	if Input.is_action_just_pressed("hotbar 1"):
-		equipmentNode.hotbarSelection(0)
-		var leftHandItem = getEquipped()
-		animatedSprite2D.playAnimation(leftHandItem.useAnimation)
-		animatedSprite2D.stop()
+		if (equipmentNode.hotbar[0] != null):
+			equipmentNode.hotbarSelection(0)
+			var leftHandItem = getEquipped()
+			animatedSprite2D.playAnimation(leftHandItem.useAnimation)
+			animatedSprite2D.stop()
+		else:
+			pass
 		
 		
 	elif (Input.is_action_just_pressed("hotbar 2")):
-		equipmentNode.hotbarSelection(1)
-		var leftHandItem = getEquipped()
-		animatedSprite2D.playAnimation(leftHandItem.useAnimation)
-		animatedSprite2D.stop()
-
+		if (equipmentNode.hotbar[1] != null):
+			equipmentNode.hotbarSelection(1)
+			var leftHandItem = getEquipped()
+			animatedSprite2D.playAnimation(leftHandItem.useAnimation)
+			animatedSprite2D.stop()
+		else:
+			pass
+	
+	# Checks for interact
+	if (Input.is_action_just_pressed("Interact")):
+		Interacting()
+		
+		
 # Runs every frame
 func _process(_delta):
 	
 	# controls camera movement
 	# Rotates the characters y axis (left to right)
 	rotate_y(-mouseDirection.x * cameraSpeed * _delta)
-	
-	# sets cameraPivots y rotation to the characters
-	cameraPivot.rotation.y = rotation.y
 	
 	# Rotates cameraPivots x axis
 	cameraPivot.rotation.x += -mouseDirection.y * cameraSpeed * _delta
