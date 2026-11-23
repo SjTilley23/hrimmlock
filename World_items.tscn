@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://2b54ag0lo5p3"]
+
+[ext_resource type="Script" uid="uid://fanta2aiwxoq" path="res://ground_item.gd" id="1_hv3cc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2cdg2"]
+height = 0.90319824
+
+[node name="WorldItems" type="Node3D" unique_id=218991645]
+
+[node name="GroundItem01" type="StaticBody3D" parent="." unique_id=121810589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9055151, 0.48853528, 0.61473155)
+script = ExtResource("1_hv3cc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundItem01" unique_id=1188487668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15783787, 0)
+shape = SubResource("CylinderShape3D_2cdg2")
+
+[node name="Sprite3D" type="Sprite3D" parent="GroundItem01" unique_id=1472186063]
